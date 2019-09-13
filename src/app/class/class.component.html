@@ -1,9 +1,31 @@
 <p>
-Name of Class : {{turma.name | uppercase }}
+Name of Class : 
+  <span *ngIf="!editable; else EditName">
+    {{turma.name | uppercase }}
+  </span>
+  <ng-template #EditName>
+    <input type="text" [(ngModel)]="turma.name" placeholder="Nome Turma" />
+  </ng-template>
 <br>
-Description :  {{turma.description}}
+Description :  
+  <span *ngIf="!editable; else EditDescription">
+    {{turma.description}}
+  </span>
+  <ng-template #EditDescription>
+    <input type="text" [(ngModel)]="turma.description" placeholder="Descrição" />
+  </ng-template>
+
 <br>
-Start Date :  {{turma.start_date | date}}
+Start Date : 
+    <span *ngIf="!editable; else EditDate">
+      {{turma.start_date | date}}
+    </span>
+    <ng-template #EditDate>
+      <input type="date" [(ngModel)]="turma.start_date" />
+    </ng-template>
+
 </p>
 
-<input [(ngModel)]="turma.name" placeholder="Nome Turma" />
+<button (click) = "enableEdit()">
+  {{editable ? "Guardar" : "Editar" }}
+</button>
