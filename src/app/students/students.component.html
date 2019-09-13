@@ -1,6 +1,5 @@
 <ul>
-  <li *ngFor="let aluno of alunos">
+  <li *ngFor="let aluno of alunos" (click) = "details.renderDetails(aluno)">
     {{aluno.name}}
-    <button (click) = "details.renderDetails(aluno)">X</button>
   </li>
 </ul>
