@@ -1,0 +1,9 @@
+<p>
+Name of Class : {{turma.name | uppercase }}
+<br>
+Description :  {{turma.description}}
+<br>
+Start Date :  {{turma.start_date | date}}
+</p>
+
+<input [(ngModel)]="turma.name" placeholder="Nome Turma" />
